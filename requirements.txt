@@ -1,0 +1,9 @@
+text
+
+
+streamlit
+google-generativeai
+pypdf
+pillow
+chromadb
+fastapi
