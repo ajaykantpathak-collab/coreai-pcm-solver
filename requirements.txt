@@ -1,8 +1,6 @@
-text
-
-
+pandas
 streamlit
-google-generativeai
+google-genai
 pypdf
 pillow
 chromadb
