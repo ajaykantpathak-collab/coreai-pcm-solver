@@ -119,37 +119,47 @@ if st.button("Analyze & Solve Problem"):
                         st.error(f"Execution error: {str(e)}")
         
         # ==========================================
-        # 6. 🖼️ BULLETPROOF GLOBAL VISUAL AID ENGINE
+        # 6. 🖼️ BULLETPROOF NATIVE VISUAL AID CORE
         # ==========================================
         with col2:
             st.write("### 🖼️ Contextual Visual Aid")
             
             query_lower = clean_query.lower()
-            # Default fallback search term if no keywords match
-            search_term = "education,science"
-            caption_text = "CoreAI Predictive Structural Data Layout"
             
-            # Local Keyword Routing Matrix
             if "photo" in query_lower or "systh" in query_lower or "plant" in query_lower:
-                search_term = "photosynthesis"
-                caption_text = "Figure 1.1: Biochemical Input/Output Pathways of Photosynthesis."
+                st.info("📊 Structural Process Matrix: Photosynthesis")
+                # Create a beautiful, native interactive data visualization block
+                chart_data = pd.DataFrame(
+                    [[6, 6, 1], [0, 0, 6], [0, 0, 6]], 
+                    columns=["CO2 (Inputs)", "H2O (Inputs)", "C6H12O6 + O2 (Outputs)"],
+                    index=["Light Energy Bound", "Chemical Conversion", "Net Yield Balance"]
+                )
+                st.bar_chart(chart_data)
+                st.caption("Figure 1.1: Native Molecular Yield Balance Metrics for Metabolic Pathways.")
+                
             elif "star" in query_lower or "twinkle" in query_lower or "refraction" in query_lower:
-                search_term = "astronomy"
-                caption_text = "Figure 2.1: Light Trajectory Deviation due to Evolving Atmospheric Densities."
+                st.info("📊 Waveform Deviation Matrix: Refraction Data")
+                chart_data = pd.DataFrame(
+                    [[1.0, 1.0], [1.2, 1.05], [1.4, 1.11], [1.6, 1.18]], 
+                    columns=["True Trajectory Vector", "Atmospheric Density Curvature"],
+                    index=["Vacuum Layer", "Upper Exosphere", "Stratosphere", "Troposphere Ground"]
+                )
+                st.line_chart(chart_data)
+                st.caption("Figure 2.1: Light Trajectory Variance relative to Evolving Atmospheric Gradients.")
+                
             elif "pendulum" in query_lower or "energy" in query_lower or "gravity" in query_lower:
-                search_term = "physics"
-                caption_text = "Figure 3.1: Kinetic versus Potential Energy Waveform Oscillations."
-            elif "ledger" in query_lower or "tax" in query_lower or "account" in query_lower:
-                search_term = "finance"
-                caption_text = "Figure 4.1: Standard Double-Entry Accounting Structural Ledger."
+                st.info("📊 Mechanical System Oscillations: Energy Over Time")
+                chart_data = pd.DataFrame(
+                    [[10, 0], [7, 3], [0, 10], [3, 7], [10, 0]], 
+                    columns=["Potential Energy (Ep)", "Kinetic Energy (Ek)"],
+                    index=["Max Amplitude Left", "Descending Arc", "Equilibrium Center", "Ascending Arc", "Max Amplitude Right"]
+                )
+                st.line_chart(chart_data)
+                st.caption("Figure 3.1: Continuous Conservation Tracking of Pendulum Mechanical Energy Curves.")
+                
             else:
-                # If no keywords match, use the dropdown subject as the search term
-                search_term = selected_subject.lower()
-                caption_text = f"Visual Reference Map: {selected_subject} Core"
-
-            # 🚀 FIXED: Using the dynamic source endpoint without any hardcoded image IDs!
-            import time
-            cb = int(time.time())
-            image_url = f"https://images.unsplash.com/featured/600x450?{search_term}&cb={cb}"
-            
-            st.image(image_url, caption=caption_text, use_container_width=True)
+                st.info(f"📊 System Core Metrics: {selected_subject}")
+                # Clean, functional fallback data metrics display
+                chart_data = pd.DataFrame([10, 20, 30, 40], columns=["Structural Vector Depth"])
+                st.area_chart(chart_data)
+                st.caption(f"Figure 4.1: General {selected_subject} Functional Model Layout Matrix.")
