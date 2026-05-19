@@ -125,29 +125,31 @@ if st.button("Analyze & Solve Problem"):
             st.write("### 🖼️ Contextual Visual Aid")
             
             query_lower = clean_query.lower()
-            search_term = "education-science"
+            # Default fallback search term if no keywords match
+            search_term = "education,science"
             caption_text = "CoreAI Predictive Structural Data Layout"
             
-            # Notice how all these conditional parameters are cleanly nested inside the button logic!
+            # Local Keyword Routing Matrix
             if "photo" in query_lower or "systh" in query_lower or "plant" in query_lower:
-                search_term = "photosynthesis,plant,biology"
+                search_term = "photosynthesis"
                 caption_text = "Figure 1.1: Biochemical Input/Output Pathways of Photosynthesis."
             elif "star" in query_lower or "twinkle" in query_lower or "refraction" in query_lower:
-                search_term = "stars,space,astronomy"
+                search_term = "astronomy"
                 caption_text = "Figure 2.1: Light Trajectory Deviation due to Evolving Atmospheric Densities."
             elif "pendulum" in query_lower or "energy" in query_lower or "gravity" in query_lower:
-                search_term = "physics,pendulum,mechanics"
+                search_term = "physics"
                 caption_text = "Figure 3.1: Kinetic versus Potential Energy Waveform Oscillations."
             elif "ledger" in query_lower or "tax" in query_lower or "account" in query_lower:
-                search_term = "accounting,finance,ledger"
+                search_term = "finance"
                 caption_text = "Figure 4.1: Standard Double-Entry Accounting Structural Ledger."
             else:
+                # If no keywords match, use the dropdown subject as the search term
                 search_term = selected_subject.lower()
-                caption_text = f"Visual Reference Map: {selected_subject} Diagram Core"
+                caption_text = f"Visual Reference Map: {selected_subject} Core"
 
-            # 🖼️ Added a dynamic query buster string to clear local browser caching instantly!
+            # 🚀 FIXED: Using the dynamic source endpoint without any hardcoded image IDs!
             import time
             cb = int(time.time())
+            image_url = f"https://images.unsplash.com/featured/600x450?{search_term}&cb={cb}"
             
-            image_url = f"https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80&sig={search_term}&cb={cb}"
             st.image(image_url, caption=caption_text, use_container_width=True)
