@@ -145,6 +145,9 @@ if st.button("Analyze & Solve Problem"):
                 search_term = selected_subject.lower()
                 caption_text = f"Visual Reference Map: {selected_subject} Diagram Core"
 
-            # Load from a globally bulletproof, un-blocked open-source image delivery pipeline
-            image_url = f"https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80&sig={search_term}"
+            # 🖼️ Added a dynamic query buster string to clear local browser caching instantly!
+            import time
+            cb = int(time.time())
+            
+            image_url = f"https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80&sig={search_term}&cb={cb}"
             st.image(image_url, caption=caption_text, use_container_width=True)
