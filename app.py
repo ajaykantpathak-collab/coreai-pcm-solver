@@ -96,7 +96,7 @@ if st.button("Analyze & Solve Problem"):
                     cursor = conn.cursor()
                     cursor.execute(
                         "SELECT question, detailed_solution FROM academic_vault WHERE question LIKE ? OR subject LIKE ? LIMIT 1",
-                        (f"%{clean_query}%", f"%{selected_subject}%")
+                        (clean_query, selected_subject)
                     )
                     db_match = cursor.fetchone()
                 except Exception:
